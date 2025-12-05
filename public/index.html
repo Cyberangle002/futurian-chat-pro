@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Futurian Chat — Pro</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="app">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">⚡</div>
+      <div>
+        <h1>Futurian Chat</h1>
+        <small>Realtime • No DB • Demo</small>
+      </div>
+    </div>
+
+    <div class="searchbar">
+      <input id="globalSearch" placeholder="Search messages or @user...">
+    </div>
+
+    <div class="rooms" id="roomsList"></div>
+
+    <div class="rooms-actions">
+      <input id="newRoomName" placeholder="New room name">
+      <button id="createRoomBtn">Create</button>
+    </div>
+
+    <div class="users-panel">
+      <h4>Users</h4>
+      <div id="usersList"></div>
+    </div>
+
+    <div class="bottom-panel">
+      <label>Theme<select id="themeSelect"><option value="neon">Neon</option><option value="dark">Dark</option><option value="minimal">Minimal</option></select></label>
+      <button id="openProfile">Profile</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+    <header class="main-header">
+      <div>
+        <div id="currentRoom" class="roomTitle">Not connected</div>
+        <div id="roomDesc" class="roomDesc">Join a room to start chatting</div>
+      </div>
+      <div class="header-actions">
+        <button id="notifToggle">🔔</button>
+        <button id="dndToggle">DND</button>
+        <button id="leaveBtn">Leave</button>
+      </div>
+    </header>
+
+    <section id="messages" class="messages"></section>
+
+    <div id="typingIndicator" class="typingIndicator"></div>
+
+    <footer class="composer">
+      <div class="replyBox hidden" id="replyBox">
+        <small>Replying to <span id="replyToUser"></span></small>
+        <div id="replyText"></div>
+        <button id="cancelReply">Cancel</button>
+      </div>
+
+      <div class="controls">
+        <input type="file" id="fileInput" />
+        <button id="emojiPicker">😊</button>
+      </div>
+
+      <form id="msgForm">
+        <textarea id="msgInput" placeholder="Write a message..."></textarea>
+        <div class="actions">
+          <button type="submit" id="sendBtn">Send</button>
+        </div>
+      </form>
+    </footer>
+  </main>
+</div>
+
+<!-- profile modal -->
+<div id="profileModal" class="modal hidden">
+  <div class="modalCard">
+    <h3>Profile</h3>
+    <input id="profileName" placeholder="Display name">
+    <input id="profileColor" type="color" value="#7c3aed">
+    <select id="profileStatus"><option>Active</option><option>Busy</option><option>Invisible</option></select>
+    <button id="saveProfile">Save</button>
+    <button id="closeProfile">Close</button>
+  </div>
+</div>
+
+<!-- login modal -->
+<div id="loginModal" class="modal">
+  <div class="modalCard">
+    <h3>Enter your display name</h3>
+    <input id="loginName" placeholder="e.g. Aditi">
+    <select id="loginRoom"><option>General</option></select>
+    <input id="loginColor" type="color" value="#7c3aed">
+    <button id="loginBtn">Join</button>
+  </div>
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+:root{
+  --bg:#071024; --card: rgba(255,255,255,0.03);
+  --accent:#00f0ff; --neon:#7c3aed; --muted:#9aa7b2;
+}
+*{box-sizing:border-box;font-family:Inter,system-ui,Arial;}
+html,body{height:100%;margin:0;background:linear-gradient(180deg,#020617,#071024);color:#eaf6ff}
+.app{display:flex;height:100vh;gap:14px;padding:14px}
+
+/* SIDEBAR */
+.sidebar{width:300px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:14px;border-radius:12px;backdrop-filter:blur(6px)}
+.brand{display:flex;gap:10px;align-items:center}
+.logo{width:44px;height:44px;border-radius:8px;background:linear-gradient(90deg,var(--neon),var(--accent));display:flex;align-items:center;justify-content:center}
+.searchbar input{width:100%;padding:8px;border-radius:8px;border:none;background:rgba(255,255,255,0.03);color:inherit}
+.rooms{margin-top:10px;max-height:36vh;overflow:auto}
+.roomCard{padding:10px;border-radius:8px;margin-bottom:8px;cursor:pointer;background:rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
+.roomCard:hover{transform:translateX(4px);box-shadow:0 8px 30px rgba(0,240,255,0.04)}
+.rooms-actions{display:flex;gap:8px;margin-top:8px}
+.users-panel{margin-top:12px;background:rgba(255,255,255,0.02);padding:8px;border-radius:8px}
+.users-panel .user{display:flex;gap:8px;align-items:center;padding:6px;border-radius:8px}
+.user-dot{width:10px;height:10px;border-radius:50%;background:#00f0a3;box-shadow:0 0 6px rgba(0,240,163,0.15)}
+.bottom-panel{margin-top:12px;display:flex;flex-direction:column;gap:8px}
+
+/* MAIN */
+.main{flex:1;display:flex;flex-direction:column;border-radius:12px;overflow:hidden;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent)}
+.main-header{display:flex;justify-content:space-between;padding:12px;border-bottom:1px solid rgba(255,255,255,0.03)}
+.roomTitle{font-weight:700}
+.messages{flex:1;padding:18px;overflow:auto;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth}
+.msg{max-width:70%;padding:12px;border-radius:12px;background:rgba(255,255,255,0.02);box-shadow:0 6px 20px rgba(2,6,23,0.3);position:relative}
+.msg.me{margin-left:auto;background:linear-gradient(90deg,rgba(0,240,255,0.06),rgba(124,58,237,0.06))}
+.meta{display:flex;justify-content:space-between;font-size:12px;color:var(--muted);margin-bottom:6px}
+.text{white-space:pre-wrap}
+.msg .controls{display:flex;gap:6px;margin-top:8px}
+.smallBtn{padding:6px;border-radius:8px;border:none;background:rgba(255,255,255,0.02);cursor:pointer}
+
+/* typing indicator */
+.typingIndicator{padding-left:12px;color:var(--muted);height:22px}
+
+/* composer */
+.composer{padding:12px;border-top:1px solid rgba(255,255,255,0.03);display:flex;flex-direction:column;gap:8px}
+.controls{display:flex;gap:8px;align-items:center}
+#fileInput{display:block}
+#msgInput{width:100%;min-height:48px;padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.03);background:transparent;color:inherit;resize:none}
+.actions{display:flex;justify-content:flex-end}
+#sendBtn{padding:10px 14px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--neon),var(--accent));color:#fff;cursor:pointer;box-shadow:0 10px 30px rgba(124,58,237,0.12)}
+
+/* modal */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.45)}
+.modalCard{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:18px;border-radius:12px;width:320px}
+
+/* reply box */
+.replyBox{padding:8px;border-radius:8px;background:rgba(255,255,255,0.02);display:flex;justify-content:space-between;align-items:center}
+
+/* reactions */
+.reaction-pill{display:inline-block;padding:6px;border-radius:12px;background:rgba(255,255,255,0.02);margin-right:6px}
+
+/* hidden */
+.hidden{display:none}
+
+/* animations */
+@keyframes fadeInUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.roomCard, .msg{animation:fadeInUp .18s ease}
+
+/* responsive */
+@media (max-width:900px){ .sidebar{display:none} .app{padding:6px} }
+
+/* small helpers */
+.muted{color:var(--muted)}
